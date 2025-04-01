@@ -80,7 +80,7 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
         >
-        {/*If you wanna add some contexts here*/}
+        Voici quelques projets que j'ai réalisés lors de mes études et de mon stage en entreprise.
         </motion.p>
       </div>
 
@@ -95,13 +95,3 @@ const Works = () => {
 
 export default SectionWrapper(Works, "");
 
-/*import React from 'react';
-import { Tilt } from "react-tilt";
-
-const Works = () => {
-  return (
-    <div>Works</div>
-  )
-}
-
-export default Works*/

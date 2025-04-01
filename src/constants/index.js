@@ -17,6 +17,8 @@ import {
     ktl,
     nantes,
     carrent,
+    innovguide,
+    joyeuxchoco,
     jobit,
     tripguide,
     joyeux,
@@ -197,49 +199,45 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Application InnovGuide",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+     " InnovGuide est une application web intuitive permettant aux utilisateurs d’explorer et de découvrir différents hébergements en fonction de leurs besoins.",
       tags: [
         {
-          name: "react",
+          name: "nodejs",
           color: "blue-text-gradient",
         },
         {
-          name: "mongodb",
+          name: "lavarel",
           color: "green-text-gradient",
         },
-        {
-          name: "tailwind",
-          color: "pink-text-gradient",
-        },
       ],
-      image: carrent,
-      source_code_link: "https://github.com/",
+      image: innovguide,
+      source_code_link: "https://github.com/DOANKhanh11/InnovGuide",
     },
     {
-      name: "Job IT",
+      name: "Website Les-chocolats-du-cse",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Les Chocolats du CSE est une website de la gestion et la vente de chocolats pour les CSE. Elle comprend une interface administrateur pour gérer les produits, entreprises et fournisseurs, ainsi qu’un espace utilisateur pour commander en ligne avec suivi et service après-vente.",
       tags: [
         {
-          name: "react",
+          name: "PHP",
           color: "blue-text-gradient",
         },
         {
-          name: "restapi",
+          name: "HTML",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "CSS",
           color: "pink-text-gradient",
         },
       ],
-      image: jobit,
-      source_code_link: "https://github.com/",
+      image: joyeuxchoco,
+      source_code_link: "https://github.com/DOANKhanh11/les-chocolats-du-cse-test",
     },
-    {
-      name: "Trip Guide",
+     /*
+     : "Trip Guide",
       description:
         "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
       tags: [
@@ -257,8 +255,8 @@ import {
         },
       ],
       image: tripguide,
-      source_code_link: "https://github.com/",
-    },
+      source_code_link: "",
+    },*/
   ];
   
   export { services, technologies, education, experiences, testimonials, projects };

@@ -29,6 +29,8 @@ import innovqube from "./company/innovqube_logo.png"
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
+import innovguide from "./innovguide.png";
+import joyeuxchoco from "./joyeuxchoco.png";
 import { i } from "framer-motion/client";
 
 export {
@@ -58,4 +60,6 @@ export {
   carrent,
   jobit,
   tripguide,
+  innovguide,
+  joyeuxchoco,
 };
