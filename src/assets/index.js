@@ -31,7 +31,6 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import innovguide from "./innovguide.png";
 import joyeuxchoco from "./joyeuxchoco.png";
-import { i } from "framer-motion/client";
 
 export {
   logo,

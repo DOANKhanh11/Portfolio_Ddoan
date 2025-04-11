@@ -13,6 +13,11 @@ import CanvasLoader from "../Loader";
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
 
+  if (!decal) {
+    console.warn("⚠️ Không thể load decal từ", props.imgUrl);
+    return null;
+  }
+
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
       <ambientLight intensity={0.25} />
