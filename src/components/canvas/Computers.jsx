@@ -38,8 +38,8 @@ const Computers = ({ isMobile }) => {
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.3 : 0.5}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        position={isMobile ? [0, -3, -2] : [0, -3.25, -1.5]}
+        rotation={isMobile ? [0, Math.PI / 2, 0] : [-0.01, -0.2, -0.1]} // Adjust the rotation for mobile
       />
     </mesh>
   );
@@ -47,6 +47,7 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -70,6 +71,11 @@ const ComputersCanvas = () => {
   }, []);
 
   return (
+    <div
+      className="w-full h-full"
+      onPointerEnter={() => setIsInteracting(true)}   // 👉 Khi chuột vào
+      onPointerLeave={() => setIsInteracting(false)} // 👉 Khi chuột ra
+    >
     <Canvas
       frameloop='demand'
       shadows
@@ -82,12 +88,14 @@ const ComputersCanvas = () => {
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
+          enabled={isInteracting} 
         />
         <Computers isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
     </Canvas>
+    </div>
   );
 };
 
