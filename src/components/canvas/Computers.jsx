@@ -7,6 +7,22 @@ import CanvasLoader from "../Loader";
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
+  useEffect(() => {
+    return () => {
+      // Dispose of the GLTF model when the component unmounts
+      if (computer.scene) {
+        computer.scene.traverse((child) => {
+          if (child.isMesh) {
+            child.geometry.dispose();
+            if (child.material.isMaterial) {
+              child.material.dispose();
+            }
+          }
+        });
+      }
+    };
+  }, [computer]);
+
   return (
     <mesh>
       <hemisphereLight intensity={0.15} groundColor='black' />
