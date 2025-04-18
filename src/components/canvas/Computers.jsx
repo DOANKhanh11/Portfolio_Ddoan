@@ -47,8 +47,6 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [enableControls, setEnableControls] = useState(false);
-  const touchTimerRef = useRef(null);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -71,23 +69,7 @@ const ComputersCanvas = () => {
     };
   }, []);
 
-  const handleTouchStart = () => {
-    touchTimerRef.current = setTimeout(() => {
-      setEnableControls(true); // 👉 Nếu giữ > 500ms, bật controls
-    }, 500);
-  };
-
-  const handleTouchEnd = () => {
-    clearTimeout(touchTimerRef.current);
-    setEnableControls(false); // 👉 Khi buông tay thì tắt controls
-  };
-
   return (
-    <div
-      className="w-full h-full"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
     <Canvas
       frameloop='demand'
       shadows
@@ -106,7 +88,6 @@ const ComputersCanvas = () => {
 
       <Preload all />
     </Canvas>
-    </div>
   );
 };
 
