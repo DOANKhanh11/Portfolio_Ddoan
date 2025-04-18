@@ -37,8 +37,8 @@ const Computers = ({ isMobile }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.45 : 0.6}
-        position={isMobile ? [0, -1.5, -1.5] : [0, -3, -1.5]}
+        scale={isMobile ? 0.4 : 0.6}
+        position={isMobile ? [0, -2.2, -1.5] : [0, -3, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -47,6 +47,8 @@ const Computers = ({ isMobile }) => {
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [enableControls, setEnableControls] = useState(false);
+  const touchTimerRef = useRef(null);
 
   useEffect(() => {
     // Add a listener for changes to the screen size
@@ -69,7 +71,23 @@ const ComputersCanvas = () => {
     };
   }, []);
 
+  const handleTouchStart = () => {
+    touchTimerRef.current = setTimeout(() => {
+      setEnableControls(true); // 👉 Nếu giữ > 500ms, bật controls
+    }, 500);
+  };
+
+  const handleTouchEnd = () => {
+    clearTimeout(touchTimerRef.current);
+    setEnableControls(false); // 👉 Khi buông tay thì tắt controls
+  };
+
   return (
+    <div
+      className="w-full h-full"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
     <Canvas
       frameloop='demand'
       shadows
@@ -78,18 +96,17 @@ const ComputersCanvas = () => {
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
-      {!isMobile && (
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-      )}
         <Computers isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
     </Canvas>
+    </div>
   );
 };
 
